@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Preview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .preview {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            display: none;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 30px;
+            color: #fff;
+            cursor: pointer;
+        }
+        .main-image {
+            width: 80%;
+            height: auto;
+        }
+        .preview-content img {
+            max-width: 80%;
+            max-height: 80%;
+        }
+        .small-images {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+        .small-images img {
+            width: 100px;
+            height: auto;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="preview" class="preview">
+        <span class="close" onclick="closePreview()">&times;</span>
+        <div class="preview-content">
+            <img id="previewImage" src="image1.jpg" alt="Main Preview">
+        </div>
+    </div>
+
+    <div class="small-images">
+        <div id="main-image">
+            <img src="image1.jpg" alt="Main Image" onclick="changePreviewImage('image1.jpg')">
+        </div>
+        <div><img src="image_1.jpg" alt="Small Image 1" onclick="changePreviewImage('image1.jpg')"></div>
+        <div><img src="image_2.jpg" alt="Small Image 2" onclick="changePreviewImage('image2.jpg')"></div>
+        <div><img src="image_3.jpg" alt="Small Image 3" onclick="changePreviewImage('image3.jpg')"></div>
+        <div><img src="image_4.jpg" alt="Small Image 4" onclick="changePreviewImage('image4.jpg')"></div>
+    </div>
+
+    <script>
+        function changePreviewImage(src) {
+            const previewImage = document.getElementById('previewImage');
+            previewImage.src = src;
+            document.getElementById('preview').style.display = 'flex';
+        }
+
+        function closePreview() {
+            const preview = document.getElementById('preview');
+            preview.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

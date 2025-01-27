@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.gallery {
+    margin: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 100px;
+    background-color: #fff;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 10px;
+    transition: transform 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+.preview {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.preview-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    max-width: 800px;
+    width: 100%;
+}
+
+.preview-images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.small-images div {
+    margin-bottom: 10px;
+}
+
+.small-images img {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.3s;
+    transform-origin: right;
+}
+
+.small-images img:hover {
+    transform: scale(1.1);
+}
+
+.preview-image img {
+    max-width: 300px;
+    border-radius: 10px;
+}
+
+.preview-details {
+    max-width: 400px;
+}
+
+.preview-details h2 {
+    margin: 0 0 10px 0;
+
+}
+.close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+    </style>
+</head>
+<body>
+    <div class="gallery">
+        <a href = "image1_gallery.html"><img src="image1.jpg" alt="Image 1" onclick="viewImage('image1.jpg')"></a>
+        <a href ="image2_gallery"><img src="image2.jpg" alt="Image 2" onclick="viewImage('image2.jpg')"></a>
+        <a href ="image3_gallery.html"><img src="image3.jpg" alt="Image 3" onclick="viewImage('image3.jpg')"></a>
+        <a href = "image4_gallery.html"><img src="image4.jpg" alt="Image 4" onclick="viewImage('image4.jpg')"></a>
+        <!-- Add more images as needed -->
+    </div>
+
+    
+
+            
+        </div>
+    </div>
+
+    <script>
+        function viewImage(src) {
+    const preview = document.getElementById('preview');
+    const previewImage = document.getElementById('previewImage');
+    previewImage.src = src;
+    preview.style.display = 'flex';
+}
+
+function changePreviewImage(src) {
+    const previewImage = document.getElementById('previewImage');
+    previewImage.src = src;
+}
+
+function closePreview() {
+    const preview = document.getElementById('preview');
+    preview.style.display = 'none';
+}
+    </script>
+</body>
+</html>
